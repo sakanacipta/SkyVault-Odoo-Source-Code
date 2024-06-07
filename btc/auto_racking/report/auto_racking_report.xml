@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_report_auto_racking" model="ir.actions.report">
+        <field name="name">Auto Racking</field>
+        <field name="model">stock.picking</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">auto_racking.auto_racking_template</field>
+        <field name="report_file">auto_racking.auto_racking_template</field>
+        <field name="print_report_name">'Auto Racking - %s - %s' % (object.partner_id.name or '', object.name)</field>
+        <field name="binding_model_id" eval="False"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="report_auto_racking" model="ir.actions.report">
+        <field name="name">Auto Racking</field>
+        <field name="model">stock.picking</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">auto_racking.auto_racking_template_2</field>
+        <field name="report_file">auto_racking.auto_racking_template_2</field>
+        <field name="print_report_name">'Auto Racking - %s - %s' % (object.partner_id.name or '', object.name)</field>
+        <field name="binding_model_id" ref="stock.model_stock_picking" />
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

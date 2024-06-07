@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Print
+    Unloading-->
+    <record
+        id="view_unloading_form_inherit" model="ir.ui.view">
+        <field name="name">stock.picking.inherited</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+
+                <button name="print_unloading" string="Print Unloading"
+                    type="object"
+                    class="btn-primary"
+                    invisible="state not in ['assigned', 'done'] or picking_type_code != 'incoming'" />
+
+            </xpath>
+        </field>
+    </record>
+
+    <!--Print
+    Picking-->
+    <record
+        id="view_picking_form_inherit" model="ir.ui.view">
+        <field name="name">stock.picking.inherited</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+
+                <button name="print_pick_list" string="Print Pick List"
+                    type="object"
+                    class="btn-primary"
+                    invisible="state in ['draft', 'cancel'] or picking_type_id != 8" />
+                <!--Picking
+                Type ID 8 = Line Clear: Pick -->
+
+
+            </xpath>
+        </field>
+    </record>
+
+    <!--Print
+    Putaway: Line Clear-->
+    <record
+        id="view_putaway_form_inherit" model="ir.ui.view">
+        <field name="name">stock.picking.inherited</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+
+                <button name="print_putaway" string="Print Putaway List"
+                    type="object"
+                    class="btn-primary"
+                    invisible="state not in ['assigned', 'done'] or picking_type_id != 10" />
+                <!--Picking
+                Type ID 10 = Line Clear: Internal Transfer -->
+
+            </xpath>
+        </field>
+    </record>
+
+    <!--Print
+    Putaway: SkyVault-->
+    <record
+        id="view_putaway_form_inherit_2" model="ir.ui.view">
+        <field name="name">stock.picking.inherited</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+
+                <button name="print_putaway" string="Print Putaway List"
+                    type="object"
+                    class="btn-primary"
+                    invisible="state not in ['assigned', 'done'] or picking_type_id != 5" />
+                <!--Picking
+                Type ID 5 = SkyVault: Internal Transfer -->
+
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

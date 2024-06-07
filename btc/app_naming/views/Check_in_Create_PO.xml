@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--This is modifying and extending Check In Module (purchase module in source code)-->
+<!--Task -Exchange RFQ to ASN terminology-->
+<odoo>
+    <data>
+        <!--Inherits Purchar Order Module-->
+        <!--Purchase Order Module (Check In - Module)-->
+        <record id="purchase_order_form_inhertit" model="ir.ui.view">
+            <field name="name">purchase.order.form.inherit</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"></field>
+            <field name="arch" type="xml">
+                <!-- Locate the button using xpath and change its string -->
+                <xpath expr="//button[@name='print_quotation']" position="attributes">
+                    <attribute name="string">Print ASN</attribute>
+                </xpath>
+                <xpath expr="//button[@id='bid_confirm']" position="attributes">
+                    <attribute name="string">Confirm ASN</attribute>
+                </xpath>
+                <xpath expr="//button[@id='draft_confirm']" position="attributes">
+                    <attribute name="string">Confirm ASN</attribute>
+                </xpath>
+                <xpath expr="//span[@class='o_form_label' and @invisible=&quot;state not in ('draft', 'sent')&quot;]" position="replace">
+                    <span class="o_form_label" invisible="state not in ('draft', 'sent')">Advanced Shipping Notification</span>
+                </xpath>
+                <xpath expr="//span[@class='o_form_label' and @invisible=&quot;state in ('draft', 'sent')&quot;]" position="replace">
+                    <span class="o_form_label" invisible="state in ('draft', 'sent')">Check In Document</span>
+                </xpath>
+            </field>
+        </record>
+        <!--End of Purchase Order Module (Check In - Module)-->
+
+        <!--Editing the record directly-->
+        <!-- Sequences for purchase.order -->
+        <function name="write" model="ir.model.data">
+            <function name="search" model="ir.model.data">
+                <value eval="[('module', '=', 'purchase'), ('name', '=', 'mail.message.subtype')]"/>
+            </function>
+            <value eval="{'noupdate': False}" />
+        </function>
+
+        <record id="purchase.mt_rfq_confirmed" model="mail.message.subtype">
+            <field name="name">ASN Confirmed</field>
+            <field name="default" eval="False"/>
+            <field name="res_model">purchase.order</field>
+        </record>
+
+        <record id="purchase.mt_rfq_approved" model="mail.message.subtype">
+            <field name="name">ASN Approved</field>
+            <field name="default" eval="False"/>
+            <field name="res_model">purchase.order</field>
+        </record>
+
+        <record id="purchase.mt_rfq_done" model="mail.message.subtype">
+            <field name="name">ASN Done</field>
+            <field name="default" eval="False"/>
+            <field name="res_model">purchase.order</field>
+        </record>
+
+        <record id="purchase.mt_rfq_sent" model="mail.message.subtype">
+            <field name="name">ASN Sent</field>
+            <field name="default" eval="False"/>
+            <field name="res_model">purchase.order</field>
+        </record>
+
+        <function name="write" model="ir.model.data">
+            <function name="search" model="ir.model.data">
+                <value eval="[('module', '=', 'purchase'), ('name', '=', 'mail.message.subtype')]"/>
+            </function>
+            <value eval="{'noupdate': True}" />
+        </function>
+
+        <function name="write" model="ir.model.data">
+            <function name="search" model="ir.model.data">
+                <value eval="[('module', '=', 'purchase'), ('name', '=', 'seq_purchase_order')]"/>
+            </function>
+            <value eval="{'noupdate': False}" />
+        </function>
+
+        <record id="purchase.seq_purchase_order" model="ir.sequence">
+            <field name="name">Check In Document</field>
+            <field name="code">purchase.order</field>
+            <field name="prefix">P</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <function name="write" model="ir.model.data">
+            <function name="search" model="ir.model.data">
+                <value eval="[('module', '=', 'purchase'), ('name', '=', 'seq_purchase_order')]"/>
+            </function>
+            <value eval="{'noupdate': True}" />
+        </function>
+        <!--End of Sequences for purchase.order -->
+
+        <!--Start of Purchase Dashboard Module-->
+        <record id="view_purchase_order_filter_inherit" model="ir.ui.view">
+            <field name="name">request.quotation.select.inherit</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.view_purchase_order_filter"></field>
+            <field name="arch" type="xml">
+                <xpath expr="//filter[@name='draft']" position="attributes">
+                    <attribute name="string">ASNs</attribute>
+                </xpath>
+                <xpath expr="//filter[@name='draft_rfqs']" position="attributes">
+                    <attribute name="string">Draft ASNs</attribute>
+                </xpath>
+                <xpath expr="//filter[@name='waiting_rfqs']" position="attributes">
+                    <attribute name="string">Waiting ASNs</attribute>
+                </xpath>
+                <xpath expr="//filter[@name='late_rfqs']" position="attributes">
+                    <attribute name="string">Late ASNs</attribute>
+                </xpath>
+            </field>
+        </record>
+        <!--End of Purchase Dashboard Module-->
+
+    </data>
+</odoo>
+

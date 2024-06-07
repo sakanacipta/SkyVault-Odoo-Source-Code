@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+product_allocation_access,product.allocation,model_product_allocation,,1,1,1,1
+stock_count_access,stock.count,model_stock_count,,1,1,1,1
+stock_count_line_access,stock.count.line,model_stock_count_line,,1,1,1,1

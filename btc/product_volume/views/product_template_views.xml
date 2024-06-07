@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_template_property_form" model="ir.ui.view">
+        <field name="name">
+            product.template.view.form.inherit.product.volume
+        </field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="stock.view_template_property_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='group_lots_and_weight']"
+                   position="replace">
+                <group string="Logistics" name="group_lots_and_weight"
+                       invisible="type not in ('product', 'consu')">
+                    <label for="weight"/>
+                    <div class="o_row" name="weight" style="width: 40px;">
+                        <field name="weight"/>
+                        <span>kg</span>
+                    </div>
+                    <label for="volume"/>
+                    <div name="volume">
+                        <div class="o_row">
+                            <field name="length" style="width:55px;"
+                                   placeholder="Length"/>
+                            <field name="breadth" style="width:55px;"
+                                   placeholder="Breadth"/>
+                            <field name="height" style="width:55px;"
+                                   placeholder="Height"/>
+                        </div>
+                        <br/>
+                        <div class="o_row">
+                            <field name="volume" string="Volume"
+                                   style="width: 40px;"/>
+                        </div>
+                    </div>
+                </group>
+            </xpath>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="stock_package_type_form_deliverys_uom">
+        <field name="name">stock.package.type.form.delivery</field>
+        <field name="model">stock.package.type</field>
+        <field name="inherit_id" ref="stock.stock_package_type_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='packaging_length']" position="after">
+                <field name="lengths" placeholder="Length M"/>
+            </xpath>
+            <xpath expr="//field[@name='width']" position="after">
+                <field name="breadths" placeholder="Width M"/>
+            </xpath>
+            <xpath expr="//field[@name='height']" position="after">
+                <field name="heights" placeholder="Height M"/>
+            </xpath>
+
+            <xpath expr="//field[@name='packaging_length']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='width']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='height']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='length_uom_name']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="unloading">
+
+
+            <t t-call="web.html_container">
+
+                <t t-foreach="orders" t-as="i">
+                    <t t-call="web.external_layout">
+
+                        <strong>
+
+                            <span
+                                style="font-size: 25px; display: block; text-align: center; ">​​Unloading
+                                Report </span>
+
+
+                            <!--<span
+                                style="font-size: 25px; display: block; text-align: center; ">SkyVault
+                                KLIA Aeropolis
+                            </span>-->
+
+                            <br />
+                        </strong>
+                        <br />
+                        <div style="float: left; width: 50%;">
+                            <strong>PO
+                                No:</strong>
+                            <t
+                                t-esc="i['po_no']" />
+                            <br />
+                            <strong>Scheduled
+                                Date:</strong>
+                            <t
+                                t-esc="i['scheduled_date']" />
+                            <br />
+                            <strong>Status:
+                            </strong>
+                            <t
+                                t-esc="i['status']" />
+                            <br />
+
+                            <br />
+                            <br />
+                            <br />
+
+
+                        </div>
+                        <div style="float: right; width: 50%;">
+                            <!--Barcode-->
+                            <span t-esc="i['grn_no']"
+                                t-options="{'widget': 'barcode', 'humanreadable': 1, 'width': 300, 'height': 75}" />
+                            <br />
+
+                            <br />
+                            <br />
+                            <br />
+
+
+                        </div>
+
+                        <div style="float: left; width: 50%;">
+                            <strong>Sender</strong>
+                            <br />
+                            <t
+                                t-esc="i['sender_name']" />
+                            <br />
+                            <t
+                                t-esc="i['sender_addr']" />
+
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+
+                        </div>
+
+
+                        <table
+                            class="table table-sm">
+                            <tbody>
+                                <tr
+                                    class="border-bottom border-top-0 border-start-0 border-end-0 border-2 border-dark fw-bold">
+                                    <td>Product Code</td>
+                                    <td>
+                                        <p>Product Description</p>
+                                    </td>
+                                    <td>
+                                        <p>Lot/ Serial No.</p>
+                                    </td>
+                                    <td>
+                                        <p>Destination Location</p>
+                                    </td>
+                                    <td>
+                                        <p>UOM</p>
+                                    </td>
+                                    <td>
+                                        <p>Quantity</p>
+                                    </td>
+                                </tr>
+                                <tr t-foreach="i['products']" t-as="product">
+                                    <td>
+                                        <t
+                                            t-esc="product['prod_code']" />
+                                        <br />
+                                    </td>
+                                    <td>
+                                        <t
+                                            t-esc="product['prod_desc']" />
+                                        <br />
+                                    </td>
+                                    <td>
+                                        <p>
+                                            <t
+                                                t-esc="product['serial_no']" />
+                                            <br />
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>
+                                            <t
+                                                t-esc="product['dest_loc']" />
+                                            <br />
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>
+                                            <t
+                                                t-esc="product['uom']" />
+                                            <br />
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>
+                                            <t
+                                                t-esc="product['qty']" />
+                                            <br />
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr style="height: 43px;" t-foreach="orders" t-as="i">
+                                    <td>
+                                        <p>
+                                            <br />
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>
+                                            <br />
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>
+                                            <br />
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>
+                                            <br />
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>
+                                            <strong>Total:</strong>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>
+                                            <t
+                                                t-esc="i['total_prod_qty']" />
+                                            <br />
+                                        </p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div style="float: left; width: 50%;">
+                            <strong>
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                 
+                               
+                        
+                                    <br />Done By: <br />
+                                    <br />
+                                    <br />
+                                    <br />
+                                _________________________________  <br /> Name: <br /> Date: <br />
+                            </strong>
+                        </div>
+
+
+                    </t>
+                </t>
+            </t>
+
+
+        </template>
+    </data>
+</odoo>

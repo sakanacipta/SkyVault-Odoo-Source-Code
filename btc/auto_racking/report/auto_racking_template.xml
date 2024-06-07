@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="auto_racking_template">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <h3>Test</h3>
+                </t>
+            </t>
+        </template>
+
+        <template id="auto_racking_template_2">
+            <t t-call="web.html_container">
+                <t t-foreach="docs_list" t-as="i">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <h2>Auto Racking (<t t-out="i"/>)</h2>
+                            <div class="row justify-content-end mb16">
+                                <div class="col-4" name="right_box">
+                                    <div t-out="i" t-options="{'widget': 'barcode', 'width': 600, 'height': 100, 'img_style': 'width:300px;height:50px;'}">
+                                        <div class="bg-light border-1 rounded d-flex flex-column align-items-center justify-content-center p-3 opacity-75 text-muted text-center">
+                                            (document barcode)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <t t-set="has_loc" t-value="any(locs)"/>
+                            <div t-if="has_loc">
+                                <table class="table table-sm">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <strong>Reference</strong>
+                                            </th>
+                                            <th>
+                                                <strong>Pallet ID</strong>
+                                            </th>
+                                            <th>
+                                                <strong>Location</strong>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="locs" t-as="loc">
+                                            <!-- In case you come across duplicated lines, ask NIM or LAP -->
+                                            <tr t-if="i == loc['reference']">
+                                                <td>
+                                                    <t t-esc="loc['reference']"/>
+                                                </td>
+                                                <td>
+                                                    <t t-esc="loc['pallet_id']"/>
+                                                </td>
+                                                <td>
+                                                    <t t-esc="loc['location_id']"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div t-else="">
+                                <h3>No auto racking data.</h3>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <!-- Inherit the existing menu item and rename it -->
+        <!-- Menu Page UI Renaming -->
+
+        <!--Check In-->
+
+        <!--Check Out-->
+
+        <!--Customers-->
+        <record id="contacts.menu_contacts" model="ir.ui.menu">
+            <field name="name">Customers</field>
+            <field name="sequence">3</field>
+        </record>
+
+        <!--Inbound Record-->
+        <record id="purchase.menu_purchase_root" model="ir.ui.menu">
+            <field name="name">Inbound Record</field>
+            <field name="sequence">4</field>
+        </record>
+
+        <!--Outbound Records-->
+        <record id="sale.sale_menu_root" model="ir.ui.menu">
+            <field name="name">Outbound Record</field>
+            <field name="sequence">5</field>
+        </record>
+
+
+        <!--Dashboards-->
+        <record id="spreadsheet_dashboard.spreadsheet_dashboard_menu_root" model="ir.ui.menu">
+            <field name="sequence">6</field>
+        </record>
+
+        <!--Inventory-->
+        <record id="stock.menu_stock_root" model="ir.ui.menu">
+            <field name="sequence">7</field>
+        </record>
+
+        <!--Barcode-->
+        <record id="stock_barcode.stock_barcode_menu" model="ir.ui.menu">
+            <field name="sequence">8</field>
+        </record>
+
+        <!--Invoicing-->
+        <record id="account.menu_finance" model="ir.ui.menu">
+            <field name="sequence">9</field>
+        </record>
+
+        <!--Quality-->
+        <record id="quality_control.menu_quality_root" model="ir.ui.menu">
+            <field name="sequence">10</field>
+        </record>
+
+        <!--Chat-->
+        <record id="mail.menu_root_discuss" model="ir.ui.menu">
+            <field name="name">Chat</field>
+            <field name="sequence">11</field>
+        </record>
+
+        <!--Apps-->
+        <record id="base.menu_management" model="ir.ui.menu">
+            <field name="sequence">100</field>
+        </record>
+
+         <!--Settings-->
+        <record id="base.menu_administration" model="ir.ui.menu">
+            <field name="sequence">101</field>
+        </record>
+
+    </data>
+</odoo>

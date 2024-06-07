@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_stock_order_form_inherit_product" model="ir.ui.view">
+        <field name="name">stock.picking.inherit.for</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='move_ids_without_package']//tree//field[@name='product_id']" position="before">
+                <!--                <field name="partner_product_ids" column_invisible="True"/>-->
+                <!--                <field name="pricelist_product" column_invisible="True"/>-->
+                <!--                <field name="product_storable_ids"/>-->
+                <field name="product_ids_domain" column_invisible="True"/>
+            </xpath>
+            <xpath expr="//field[@name='move_ids_without_package']//tree//field[@name='product_id']"
+                   position="attributes">
+                <attribute name="domain">[('id', 'in',
+                    product_ids_domain)]
+                </attribute>
+            </xpath>
+            <xpath expr="//page[@name='operations']" position="after">
+
+                <page string="Additional Services" name="additional_services">
+
+                    <field name="products_ids" invisible="True"/>
+                    <field name="service_ids" domain="[('id', 'in', products_ids)]" invisible="True"/>
+                    <field name="product_allocation_ids">
+                        <tree edit="1" editable="bottom">
+                            <control>
+                                <create name="add_product_control" string="Add a product"/>
+                                <create name="add_product_control" string="Add a partner"/>
+                            </control>
+                            <field name="product_id" domain="[('id', 'in', products_ids)]"/>
+                            <field name="quantity"/>
+                            <field name="company_id"/>
+                            <field name="products_ids" column_invisible="True"/>
+                            <!--                            <field name="company_filters"/>-->
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="barcode_stock_picking" model="ir.ui.view">
+        <field name="name">stock.picking.inherit.for.barcode</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock_barcode.stock_picking_barcode"/>
+        <field name="arch" type="xml">
+            <field name="move_ids" position="after">
+                <field name="products_ids" invisible="True"/>
+                <field name="product_allocation_ids">
+                    <tree edit="1" editable="bottom">
+                        <control>
+                            <create name="add_product_control" string="Add a product"/>
+                            <create name="add_product_control" string="Add a partner"/>
+                        </control>
+                        <field name="product_id" domain="[('id', 'in', products_ids)]"/>
+                        <field name="quantity"/>
+                        <field name="company_id"/>
+                        <field name="products_ids" column_invisible="True"/>
+                        <!--                            <field name="company_filters"/>-->
+                    </tree>
+                </field>
+            </field>
+        </field>
+    </record>
+</odoo>

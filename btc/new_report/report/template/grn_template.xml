@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="grn_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+
+
+                    <strong>
+                        <u>
+                            <span class="h3-fs"
+                                style="font-size: 25px; display: block; text-align: center; ">​​GOOD
+                                RECEIVED NOTE </span>
+                        </u>
+                    </strong>
+                    <br />
+                    <div style="float: left; width: 50%;">
+                        <strong>GRN No: </strong>
+                        <span t-field="o.name">-</span>
+                        <br />
+                        <strong>GRN Date:  </strong>
+                        <br />
+                        <strong>Supplier Code:​ </strong>
+                        <span t-field="o.partner_id.id">-</span>
+                        <br />
+                        <strong>Supplier Name: </strong>
+                        <span t-field="o.partner_id">-</span>
+                        <br />
+                    </div>
+                    <div style="float: right; width: 50%;">
+                        <strong>PO No: </strong>
+                            <span t-field="o.origin">-</span>
+                            <br />
+                            <strong>PO
+                        Date:</strong>​  <br />
+                            <strong>Driver
+                            Name: </strong>​ <span>-</span>
+                            <br />
+                            <strong>Driver
+                            IC: </strong>
+                                <span>-</span>
+                            <br />
+                            <strong>Vehicle
+                            No </strong>: <span>-</span>
+                            <br />
+                            <br />
+                            <br />
+                    </div>
+                    <table class="table table-sm" style="width: 711px; height: 101.3px;">
+                        <tbody>
+                            <tr
+                                class="border-bottom border-top-0 border-start-0 border-end-0 border-2 border-dark fw-bold"
+                                style="height: 57.7px;">
+                                <td style="width: 119px;">Product Code</td>
+                                <td style="width: 119px;">
+                                    <p>Product Description</p>
+                                </td>
+                                <td style="width: 119px;">
+                                    <p>UOM</p>
+                                </td>
+                                <td style="width: 119px;">
+                                    <p>Qty Ordered </p>
+                                </td>
+                                <td style="width: 119px;">
+                                    <p>Qty Received</p>
+                                </td>
+                                <td style="width: 115px;">
+                                    <p>Variance Qty</p>
+                                </td>
+                            </tr>
+                            <tr t-foreach="docs" t-as="o"
+                                style="height: 43.2px;">
+                                <td>
+                                    <span t-field="o.name">-</span>
+                                    <br />
+                                </td>
+                                <td>
+                                    <p>
+                                        <span t-field="o.name">-</span>
+                                        <br />
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        <span t-field="o.name">-</span>
+                                        <br />
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        <span t-field="o.name">-</span>
+                                        <br />
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        <span t-field="o.name">-</span>
+                                        <br />
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        <br />
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div style="float: left; width: 50%;">
+                        <strong>Remarks: <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />Received
+                            By: <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br /> _________________________________  </strong>
+                    </div>
+                    <div style="float: right; width: 50%;">
+                        <strong>
+                            <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />Verified
+                            By: <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br /> _________________________________ <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                        </strong>
+                    </div>
+
+
+                </t>
+            </t>
+        </t>
+    </template>
+
+
+</odoo>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_pricelist_form_view_inherit" model="ir.ui.view">
+        <field name="name">product.pricelist.form.inherit</field>
+        <field name="model">product.pricelist</field>
+        <field name="inherit_id" ref="product.product_pricelist_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='pricelist_rules']" position="attributes">
+                <attribute name="string">Service Rules</attribute>
+            </xpath>
+            <xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='pricelist_rules']/field[@name='item_ids']/tree[1]/field[@name='product_tmpl_id']"
+                   position="attributes">
+                <attribute name="domain">[("detailed_type", "=", "service")]</attribute>
+            </xpath>
+            <xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='pricelist_rules']/field[@name='item_ids']/tree[1]/field[@name='date_start']"
+                   position="attributes">
+                <attribute name="optional">hide</attribute>
+            </xpath>
+            <xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='pricelist_rules']/field[@name='item_ids']/tree[1]/field[@name='date_end']"
+                   position="attributes">
+                <attribute name="optional">hide</attribute>
+            </xpath>
+            <xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='pricelist_rules']/field[@name='item_ids']/tree[1]/field[@name='min_quantity']"
+                   position="attributes">
+                <attribute name="optional">hide</attribute>
+            </xpath>
+
+
+            <xpath expr="//page[@name='pricelist_rules']" position="after">
+                <page name="Item List">
+<!--                    <field name="item_list" domain="[('partner_id', '=', False),('detailed_type','=','product')]"/>-->
+                   <field name="product_allocation_ids">
+                        <tree edit="1" editable="bottom" >
+                            <control>
+                                <create name="add_product_control" string="Add a product"/>
+                                <create name="add_product_control" string="Add a partner"/>
+                            </control>
+                            <field name="product_id" domain="[('detailed_type','=','product')]"/>
+                            <field name="partner_id" column_invisible="True"/>
+                            <field name="company_id"/>
+                            <field name="company_filters" column_invisible="True"/>
+                        </tree>
+                    </field>
+                </page>
+                <page name="Stock Count">
+                    <field name="stock_count_ids">
+                            <tree>
+                                <field name="date"/>
+                                <field name="stock_lines"/>
+                            </tree>
+                    </field>
+
+                </page>
+
+            </xpath>
+            <xpath expr="//field[@name='currency_id']" position="after">
+
+                <field name="partner_id"/>
+
+                <field name="duration"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+<!--                <field name="invoice_date" invisble="True"/>-->
+                <field name="tenure"/>
+                <field name="inventory_duration"/>
+                <field name="frequency_tenure"/>
+
+
+            </xpath>
+            <xpath expr="//form[1]/sheet[1]/notebook[1]" position="inside">
+                <page string="Sale Orders" name="studio_page_8k4_1hr67jk4u">
+                    <group name="studio_group_8k4">
+                        <group name="studio_group_8k4_left"/>
+                        <group name="studio_group_8k4_right"/>
+                    </group>
+                    <field name="sale_ids"/>
+                </page>
+            </xpath>
+
+            <!--             <xpath expr="//widget[@name='web_ribbon']" position="before">-->
+            <!--    <div name="button_box" class="oe_button_box">-->
+            <!--      <button class="oe_stat_button" icon="fa-diamond" type="action" name="653">-->
+            <!--        <field widget="statinfo" name="x_base_pricelist_id_product_pricelist_item_count" string="test"/>-->
+            <!--      </button>-->
+            <!--    </div>-->
+            <!--  </xpath>-->
+            <!--  <xpath expr="//button[@name='reset_to_draft']" position="after">-->
+            <!--    <field widget="statusbar" options="{'clickable': '1'}" name="x_studio_selection_field_lv_1hr60akcd"/>-->
+            <!--  </xpath>-->
+            <xpath expr="//sheet" position="before">
+                <header>
+                           <button name="action_view_sales" type="object"
+                        string="Sales Orders"
+                        class="oe_stat_button"
+                        icon="fa-shopping-cart">
+
+                    <field name="sale_count" widget="statinfo"/>
+
+                </button>
+
+                    <button name="confirm_and_create_sale_order" string="Confirm" type="object" class="oe_highlight"  invisible="status != 'draft'"/>
+                    <button name="reset_to_draft" string="Reset to Draft" type="object" class="oe_highlight" invisible="status != 'confirmed'"/>
+
+                        <field name="status" widget="statusbar"/>
+
+                    <!--                    <button name="open_sale_orders" type="action" class="oe_stat_button" icon="fa-list-ul"-->
+                    <!--                       >-->
+                    <!--                        Sale Orders (<field name="sale_count"/>)-->
+                    <!--                    </button>-->
+
+                </header>
+            </xpath>
+
+        </field>
+    </record>
+    <!--    <record id="action_open_sale_orders" model="ir.actions.act_window">-->
+    <!--    <field name="name">Sale Orders</field>-->
+    <!--    <field name="res_model">sale.order</field>-->
+    <!--    <field name="view_mode">tree,form</field>-->
+    <!--    <field name="domain">[('pricelist_id', '=', active_id)]</field>-->
+    <!--    <field name="context">{'search_default_pricelist_id': active_id}</field>-->
+    <!--    <field name="help" type="html">-->
+    <!--        <p class="oe_view_nocontent_create">There are no sale orders for this price list.</p>-->
+    <!--    </field>-->
+    <!--</record>-->
+</odoo>

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="good_received_note">
+
+
+            <t t-call="web.html_container">
+
+                <t t-foreach="orders" t-as="i">
+                    <t t-call="web.external_layout">
+
+                        <strong>
+                            <u>
+                                <span
+                                    style="font-size: 25px; display: block; text-align: center; ">​​GOODS
+                                    RECEIVED NOTE </span>
+                            </u>
+                        </strong>
+                        <br />
+                        <div style="float: left; width: 50%;">
+                            <strong>GRN
+                                No:</strong>
+                            <t
+                                t-esc="i['grn_no']" />
+
+                            <br />
+                            <strong>GRN
+                                Date:</strong>
+                            <t
+                                t-esc="i['grn_date']" />
+                            <br />
+                            <strong>Supplier
+                                Code:</strong>
+                            <t
+                                t-esc="i['supplier_code']" />
+                            <br />
+                            <strong>Supplier
+                                Name:</strong>
+                            <t
+                                t-esc="i['supplier_name']" />
+                            <br />
+                            <strong>Vendor Reference:
+                            </strong>
+                            <t
+                                t-esc="i['partner_ref']" />
+                            <br />
+                            <br />
+                            <br />
+
+                        </div>
+                        <div style="float: right; width: 50%;">
+                            <strong>PO
+                                No:</strong>
+                            <t
+                                t-esc="i['po_no']" />
+
+                            <br />
+                            <strong>PO
+                                Date:</strong>
+                            <t
+                                t-esc="i['po_date']" />
+                            <br />
+                            <strong>Driver
+                                Name:</strong>
+                            <t
+                                t-esc="i['driver_name']" />
+                            <br />
+                            <strong>Driver
+                                IC:</strong>
+                            <t
+                                t-esc="i['driver_ic_no']" />
+                            <br />
+                            <strong>Vehicle
+                                No:</strong>
+                            <t
+                                t-esc="i['vehicle_no']" />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+
+                        </div>
+
+                        <table class="table table-sm">
+                            <tbody>
+                                <tr
+                                    class="border-bottom border-top-0 border-start-0 border-end-0 border-2 border-dark fw-bold"
+                                    style="height: 57.7px;">
+                                    <td style="width: 119px;">Product Code</td>
+                                    <td style="width: 119px;">
+                                        <p>Product Description</p>
+                                    </td>
+                                    <td style="width: 119px;">
+                                        <p>UOM</p>
+                                    </td>
+                                    <td style="width: 119px;">
+                                        <p>Qty Ordered </p>
+                                    </td>
+                                    <td style="width: 119px;">
+                                        <p>Qty Received</p>
+                                    </td>
+                                    <td style="width: 115px;">
+                                        <p>Variance Qty</p>
+                                    </td>
+                                </tr>
+                                <tr t-foreach="i['products']" t-as="product"
+                                    style="height: 43.2px;">
+                                    <td>
+                                        <t
+                                            t-esc="product['prod_code']" />
+                                        <br />
+                                    </td>
+                                    <td>
+                                        <p>
+                                            <t
+                                                t-esc="product['prod_code']" />
+                                            <br />
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>
+                                            <t
+                                                t-esc="product['uom']" />
+                                            <br />
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>
+                                            <t
+                                                t-esc="product['qty_ordered']" />
+                                            <br />
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>
+                                            <t
+                                                t-esc="product['qty_received']" />
+                                            <br />
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>
+                                            <t
+                                                t-esc="product['variance_qty']" />
+                                            <br />
+                                        </p>
+                                    </td>
+                                </tr>
+                                <!--TOTAL-->
+                                <tr style="height: 43.2px;" t-foreach="orders" t-as="i">
+                                    <td>
+                                        <p>
+                                            <br />
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>
+                                            <br />
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>
+                                            <strong>Total:</strong>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>
+                                            <t
+                                                t-esc="i['total_ordered']" />
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>
+                                            <t
+                                                t-esc="i['total_received']" />
+                                            <br />
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>
+                                            <t
+                                                t-esc="i['total_variance']" />
+                                            <br />
+                                        </p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div style="float: left; width: 50%;">
+                            <strong>Remarks: <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                             
+                        
+                                    <br />Received By: <br />
+                                    <br />
+                                    <br />
+                                    <br />
+                                    <br />
+                                _________________________________  </strong>
+                        </div>
+                        <div style="float: right; width: 50%;">
+                            <strong>
+                                <br />
+                                    <br />
+                                    <br />
+                                    <br />
+                                    <br />
+                                    <br />
+                                    
+                                    <br />Verified By: <br />
+                                    <br />
+                                    <br />
+                                    <br />
+                                    <br />
+                                _________________________________ <br />
+
+                            </strong>
+                        </div>
+
+                    </t>
+                </t>
+            </t>
+
+
+        </template>
+    </data>
+</odoo>

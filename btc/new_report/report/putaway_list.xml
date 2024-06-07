@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="putaway_list">
+
+
+            <t t-call="web.html_container">
+
+                <t t-foreach="orders" t-as="i">
+                    <t t-call="web.external_layout">
+
+                        <strong>
+
+                            <span
+                                style="font-size: 25px; display: block; text-align: center; ">Putaway
+                                List
+                            </span>
+
+                            <!--<span
+                                style="font-size: 25px; display: block; text-align: center; ">HQ
+                                Subang Jaya Warehouse
+                            </span>-->
+
+                            <br />
+                        </strong>
+                        <br />
+                        <div style="float: left; width: 50%;">
+
+                            <strong>
+                                Date:</strong>
+                            <t
+                                t-esc="i['effective_date']" />
+                            <br />
+
+
+                            <br />
+                            <br />
+                            <br />
+
+
+                        </div>
+
+
+                        <table
+                            class="table table-sm" style="width: 711px;">
+                            <tbody>
+                                <tr
+                                    class="border-bottom border-top-0 border-start-0 border-end-0 border-2 border-dark fw-bold">
+                                    <td style="width: 143px;">Pallet ID</td>
+                                    <td style="width: 328.312px;">
+                                        <p>Destination Location</p>
+                                    </td>
+                                    <td style="width: 169.656px;">
+                                        <p>Expire Date</p>
+                                    </td>
+                                    <td style="width: 66.4688px;">
+                                        <p>UOM</p>
+                                    </td>
+                                    <td style="width: 138px;">
+                                        <p>Quantity</p>
+                                    </td>
+                                </tr>
+                                <tr t-foreach="i['products']" t-as="product">
+                                    <td style="width: 143.198px;">
+                                        <t
+                                            t-esc="product['prod_code']" />
+                                        <br />
+                                    </td>
+                                    <td style="width: 143.156px;">
+                                        <t
+                                            t-esc="product['dest_loc']" />
+                                        <br />
+                                    </td>
+                                    <td
+                                        style="width: 143.125px;">
+                                        <p>
+
+                                            <br />
+                                        </p>
+                                    </td>
+                                    <td style="width: 143.104px;">
+                                        <p>
+                                            <t
+                                                t-esc="product['uom']" />
+                                            <br />
+                                        </p>
+                                    </td>
+                                    <td style="width: 138.083px;">
+                                        <p>
+                                            <t
+                                                t-esc="product['qty']" />
+                                            <br />
+                                        </p>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                        <div style="float: left; width: 50%;">
+                            <strong>
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                 
+                               
+                        
+                                    <br />Done By: <br />
+                                    <br />
+                                    <br />
+                                    <br />
+                                _________________________________  <br /> Name: <br /> Date: <br />
+                            </strong>
+                        </div>
+
+
+                    </t>
+                </t>
+            </t>
+
+
+        </template>
+    </data>
+</odoo>

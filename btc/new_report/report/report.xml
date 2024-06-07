@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="report_grn" model="ir.actions.report">
+        <field name="name">Goods Received Note</field>
+        <field name="model">purchase.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">new_report.good_received_note</field>
+        <field name="report_file">new_report.good_received_note</field>
+        <field name="print_report_name">'Goods Received Note - %s - %s' % (object.partner_id.name or
+            '',
+            object.name)</field>
+        <field name="binding_model_id" ref="purchase.model_purchase_order" />
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="report_purchase_order" model="ir.actions.report">
+        <field name="name">Inbound Document</field>
+        <field name="model">purchase.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">new_report.purchase_order</field>
+        <field name="report_file">new_report.purchase_order</field>
+        <field name="print_report_name">'Inbound Document - %s - %s' % (object.partner_id.name
+            or
+            '',
+            object.name)</field>
+        <field name="binding_model_id" ref="purchase.model_purchase_order" />
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="report_delivery_order" model="ir.actions.report">
+        <field name="name">Delivery Notification</field>
+        <field name="model">sale.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">new_report.delivery_order</field>
+        <field name="report_file">new_report.delivery_order</field>
+        <field name="print_report_name">'Delivery Notification - %s - %s' % (object.partner_id.name
+            or
+            '',
+            object.name)</field>
+        <field name="binding_model_id" ref="sale.model_sale_order" />
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="report_unloading" model="ir.actions.report">
+        <field name="name">Unloading Report</field>
+        <field name="model">stock.picking</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">new_report.unloading</field>
+        <field name="report_file">new_report.unloading</field>
+        <field name="print_report_name">'Unloading Report - %s - %s' % (object.partner_id.name
+            or
+            '',
+            object.name)</field>
+        <field name="binding_model_id" ref="stock.model_stock_picking" />
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="report_pick_list" model="ir.actions.report">
+        <field name="name">Pick List</field>
+        <field name="model">stock.picking</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">new_report.pick_list</field>
+        <field name="report_file">new_report.pick_list</field>
+        <field name="print_report_name">'Pick List - %s - %s' % (object.partner_id.name
+            or
+            '',
+            object.name)</field>
+        <field name="binding_model_id" ref="stock.model_stock_picking" />
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="report_putaway" model="ir.actions.report">
+        <field name="name">Putaway List</field>
+        <field name="model">stock.picking</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">new_report.putaway_list</field>
+        <field name="report_file">new_report.putaway_list</field>
+        <field name="print_report_name">'Putaway List - %s - %s' % (object.partner_id.name
+            or
+            '',
+            object.name)</field>
+        <field name="binding_model_id" ref="stock.model_stock_picking" />
+        <field name="binding_type">report</field>
+    </record>
+
+
+</odoo>

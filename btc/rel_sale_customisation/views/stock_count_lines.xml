@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="stock_count_form" model="ir.ui.view">
+            <field name="model">stock.count</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="date"/>
+                        </group>
+                        <group>
+                            <field name="partner_id"/>
+                            <field name="pricelist_id"/>
+                        </group>
+                        <notebook>
+                        <page string="Stock Lines">
+                            <field name="stock_lines">
+                                <tree>
+                                    <field name="product_id"/>
+                                <field name="location_id"/>
+                                <field name="quantity"/>
+                                </tree>
+                            </field>
+                        </page>
+                        </notebook>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+
+
+</odoo>

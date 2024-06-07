@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_stock_cluster_tree" model="ir.ui.view">
+        <field name="name">stock.cluster.tree</field>
+        <field name="model">stock.cluster</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="company_id"/>
+                <field name="name"/>
+                <field name="location_in_id"/>
+                <field name="partner_id"/>
+                <field name="location_out_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="stock_cluster_action" model="ir.actions.act_window">
+        <field name="name">Stock Clusters</field>
+        <field name="res_model">stock.cluster</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <menuitem id="stock_cluster_menu" name="Stock Clusters"
+              action="stock_cluster_action" parent="stock.menu_warehouse_config"/>
+</odoo>
+

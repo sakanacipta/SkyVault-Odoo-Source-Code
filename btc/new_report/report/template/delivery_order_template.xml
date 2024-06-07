@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="delivery_order">
+        <t t-call="web.html_container">
+            <strong>Send From</strong>
+            <br />
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="oe_structure" />
+                        <strong>
+                            <u>
+                                <span class="h3-fs"
+                                    style="font-size: 25px; display: block; text-align: center; ">DELIVERY
+                                    ORDER</span>
+                            </u>
+                        </strong>
+                        <br />
+                        <div style="float: left; width: 50%;">
+                            <strong>DO No: </strong>
+                            <span t-field="o.name">-</span>
+                            <br />
+                            <strong>DO Date:  </strong>
+                            <span t-field="o.name">-</span>
+                            <br />
+                            <strong>Delivery Date:​ </strong>
+                            <span t-field="o.name">-</span>
+
+                        </div>
+                        <div style="float: right; width: 50%;">
+                            <strong>Driver Name: </strong>
+                            <span t-field="o.name">-</span>
+                            <br />
+                            <strong>Driver
+                            IC:</strong>​  <span t-field="o.name">-</span>
+                            <br />
+                            <strong>Driver
+                                Name: </strong>​ <span t-field="o.name">-</span>
+                            <br />
+                            <strong>Vehicle
+                            No </strong>: <span t-field="o.name">-</span>
+
+                        </div>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <div style="float: left; width: 50%;">
+                            <strong> Bill To </strong>
+                            <br />
+                            <span t-field="o.name">-</span>
+                            <br />
+                        </div>
+                        <div style="float: right; width: 50%;">
+                            <strong> Ship To</strong>
+                            <br />
+                            <span t-field="o.name">-</span>
+                            <br />
+                            <span t-field="o.name">-</span>
+                        </div>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+
+                        <table class="table table-sm" style="width: 711px;">
+                            <tbody>
+                                <tr
+                                    class="border-bottom border-top-0 border-start-0 border-end-0 border-2 border-dark fw-bold">
+                                    <td style="width: 143px;">Product Code</td>
+                                    <td style="width: 328.312px;">
+                                        <p>Product Description</p>
+                                    </td>
+                                    <td style="width: 169.656px;">
+                                        <p>Serial No</p>
+                                    </td>
+                                    <td style="width: 66.4688px;">
+                                        <p>UOM</p>
+                                    </td>
+                                    <td style="width: 138px;">
+                                        <p>Quantity</p>
+                                    </td>
+                                </tr>
+                                <tr t-foreach="docs" t-as="p">
+                                    <td style="width: 143.198px;">
+                                        <span t-field="o.name">-</span>
+                                        <br />
+                                    </td>
+                                    <td style="width: 143.156px;">
+                                        <span t-field="o.name">-</span>
+                                        <br />
+                                    </td>
+                                    <td style="width: 143.125px;">
+                                        <p>
+                                            <br />
+                                        </p>
+                                    </td>
+                                    <td style="width: 143.104px;">
+                                        <span t-field="o.name">-</span>
+                                    </td>
+                                    <td style="width: 138.083px;">
+                                        <p>
+                                            <span t-field="o.name">-</span>
+                                            <br />
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr style="height: 43px;">
+                                    <td style="width: 143.26px;">
+                                        <p>
+                                            <br />
+                                        </p>
+                                    </td>
+                                    <td style="width: 143.208px;">
+                                        <p>
+                                            <br />
+                                        </p>
+                                    </td>
+                                    <td style="width: 143.167px;">
+                                        <p>
+                                            <br />
+                                        </p>
+                                    </td>
+                                    <td style="width: 143.135px;">
+                                        <p>
+                                            <strong>Total:</strong>
+                                        </p>
+                                    </td>
+                                    <td style="width: 138.146px;">
+                                        <p>
+                                            <br />
+                                        </p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+                        <strong>Remarks:</strong>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <strong>
+                            <br />
+                        <br />
+                        <br />
+                        <br /> Received the above goods in good order &amp;
+                            condition </strong>
+                        <br />
+                        <strong></strong>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <strong>_________________________________________________ </strong>
+                        <br />
+                        <strong>Authorized Signature and CO.Stamp </strong>
+                        <br />
+                        <strong>Name: </strong>
+                        <br />
+                        <strong>IC No: </strong>
+                        <br />
+                        <strong>Vehicle No:</strong>
+                        <br />
+                        <br />
+                        <br />
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+
+</odoo>

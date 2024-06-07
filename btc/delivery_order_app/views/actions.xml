@@ -1,0 +1,27 @@
+<odoo>
+    <record id="action_delivery_orders" model="ir.actions.act_window">
+        <field name="name">Delivery Orders</field>
+        <field name="res_model">stock.picking</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('picking_type_code', '=', 'outgoing')]</field>
+        <field name="context">{'contact_display': 'partner_address', 'default_company_id': allowed_company_ids[0], 'restricted_picking_type_code': 'outgoing', 'search_default_delivery': 1}</field>
+    </record>
+    <menuitem id="delivery_order_app_menu"
+              name="Out bound"
+              action="action_delivery_orders"
+              sequence="10"
+     web_icon="delivery_order_app,static/description/icon.png"/>
+    <record id="action_inbound_receipts_orders" model="ir.actions.act_window">
+        <field name="name">Receipts Orders</field>
+        <field name="res_model">stock.picking</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('picking_type_code', '=', 'incoming')]</field>
+        <field name="context">{'contact_display': 'partner_address', 'default_company_id': allowed_company_ids[0], 'restricted_picking_type_code': 'incoming', 'search_default_reception': 1}</field>
+    </record>
+    <menuitem id="receipts_order_app_menu"
+              name="Inbound"
+              action="action_inbound_receipts_orders"
+              sequence="10"
+              web_icon="delivery_order_app,static/description/icon.png"
+    />
+</odoo>

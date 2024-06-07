@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_partner_view_form_inherit" model="ir.ui.view">
+        <field name="name">res.partner.view.form.inherit.product</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='internal_notes']" position="after">
+                <field name="company_filters"/>
+                <page name="products" string="Products" invisible="not company_filters">
+                    <field name="product_allocation_ids">
+                        <tree edit="1" editable="bottom">
+                            <control>
+                                <create name="add_product_control" string="Add a product"/>
+                                <create name="add_product_control" string="Add a partner"/>
+                            </control>
+                            <field name="product_id" domain="[('partner_id', '=', False)]"/>
+                            <field name="partner_id" column_invisible="True"/>
+                            <field name="company_id"/>
+                            <field name="company_filters" column_invisible=""/>
+                        </tree>
+                    </field>
+                    <field name="product_ids" widget="one2many" column_invisible="True"/>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_sale_order_form_inherit_product" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit.product</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form[1]/header[1]/field[@name='state']" position="after">
+                <button string="Storage services" name="storage_services_calculation" type="object"/>
+            </xpath>
+            <xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='order_lines']/field[@name='order_line']/tree[1]/field[@name='product_packaging_id']"
+                   position="after">
+                <field name="services_charges" optional="show"/>
+            </xpath>
+
+        </field>
+    </record>
+
+
+</odoo>

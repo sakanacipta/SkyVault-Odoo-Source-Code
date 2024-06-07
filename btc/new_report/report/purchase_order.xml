@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="purchase_order">
+
+
+            <t t-call="web.html_container">
+
+                <t t-foreach="orders" t-as="i">
+                    <t t-call="web.external_layout">
+
+                        <strong>
+                            <u>
+                                <span
+                                    style="font-size: 25px; display: block; text-align: center; ">INBOUND
+                        DOCUMENT</span>
+                            </u>
+                        </strong>
+                        <br />
+                        <div
+                            style="float: left; width: 50%;">
+                            <strong>PO
+                                No:</strong>
+                            <t
+                                t-esc="i['po_no']" />
+
+                            <br />
+                            <strong>PO
+                                Date:</strong>
+                            <t
+                                t-esc="i['po_date']" />
+
+                            <br />
+                            <strong>Delivery Date:
+                            </strong>
+                            <t
+                                t-esc="i['delivery_date']" />
+                            <br />
+                            <strong>Vendor Reference:
+                            </strong>
+                            <t
+                                t-esc="i['partner_ref']" />
+                            <br />
+                            <br />
+
+                        </div>
+                        <div
+                            style="float: right; width: 50%;">
+                            <strong>Driver
+                                Name:</strong>
+                            <t
+                                t-esc="i['driver_name']" />
+
+
+                            <br />
+                            <strong>Driver
+                                IC:</strong>
+                            <t
+                                t-esc="i['driver_ic_no']" />
+
+                            <br />
+
+                            <strong>Vehicle
+                                No:</strong>
+                            <t
+                                t-esc="i['vehicle_no']" />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+
+                        </div>
+
+
+                        <div
+                            style="float: left; width: 40%;">
+                            <strong> Sender </strong>
+                            <br />
+                            <t
+                                t-esc="i['sender_name']" />
+                            <br />
+                            <t
+                                t-esc="i['sender_addr']" />
+                            <br />
+                            <br /> Tel: <t
+                                t-esc="i['sender_phone']" />
+                            <br />
+                            <br />
+                            <br />
+                        </div>
+                        <div
+                            style="float: right; width: 50%;">
+                            <strong> Ship To</strong>
+                            <br />
+                            <t
+                                t-esc="i['ship_to']" />
+                            <br />
+                            <t
+                                t-esc="i['ship_to_addr']" />
+                            <br />
+                            <br /> Tel: <t
+                                t-esc="i['ship_to_phone']" />
+                            <br />
+                            <br />
+                            <br />
+                        </div>
+                        <br />
+                        <br />
+                        <br />
+
+
+                        <table
+                            class="table table-sm">
+                            <tbody>
+                                <tr
+                                    class="border-bottom border-top-0 border-start-0 border-end-0 border-2 border-dark fw-bold">
+                                    <td style="width: 143px;">Product Code</td>
+                                    <td style="width: 328.312px;">
+                                        <p>Product Description</p>
+                                    </td>
+                                    <td style="width: 169.656px;">
+                                        <p>Lot/Serial No</p>
+                                    </td>
+                                    <td style="width: 66.4688px;">
+                                        <p>UOM</p>
+                                    </td>
+                                    <td style="width: 138px;">
+                                        <p>Quantity</p>
+                                    </td>
+                                </tr>
+                                <tr t-foreach="i['products']" t-as="product">
+                                    <td style="width: 143.198px;">
+                                        <t
+                                            t-esc="product['prod_code']" />
+                                        <br />
+                                    </td>
+                                    <td style="width: 143.156px;">
+                                        <t
+                                            t-esc="product['prod_desc']" />
+                                        <br />
+                                    </td>
+                                    <td style="width: 143.125px;">
+                                        <p>
+                                            <t
+                                                t-esc="product['serial_no']" />
+                                            <br />
+                                        </p>
+                                    </td>
+                                    <td style="width: 143.104px;">
+                                        <p>
+                                            <t
+                                                t-esc="product['uom']" />
+                                            <br />
+                                        </p>
+
+                                    </td>
+                                    <td style="width: 138.083px;">
+                                        <p>
+                                            <t
+                                                t-esc="product['qty']" />
+                                            <br />
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr style="height: 43px;" t-foreach="orders" t-as="i">
+                                    <td style="width: 143.26px;">
+                                        <p>
+                                            <br />
+                                        </p>
+                                    </td>
+                                    <td style="width: 143.208px;">
+                                        <p>
+                                            <br />
+                                        </p>
+                                    </td>
+                                    <td style="width: 143.167px;">
+                                        <p>
+                                            <br />
+                                        </p>
+                                    </td>
+                                    <td style="width: 143.135px;">
+                                        <p>
+                                            <strong>Total:</strong>
+                                        </p>
+                                    </td>
+                                    <td style="width: 138.146px;">
+                                        <p>
+                                            <t
+                                                t-esc="i['total_prod_qty']" />
+                                            <br />
+                                        </p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div
+                            style="page-break-after: always;"></div>
+                        <br />
+                        <strong>
+                            Remarks: </strong> Company shall not be liable for any loss or
+                        destruction of or damage to the Goods, however caused, unless such loss,
+                        damage or destruction resulted from Company’s failure to exercise such care
+                        in regard to the Goods as a reasonably careful person would exercise under
+                        like circumstances. Company is not liable for damages which could not have
+                        been avoided by the exercise of such care.  <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            
+                            
+                            
+
+
+                        
+                        <div
+                            style="float: left; width: 50%;">
+                            <strong>
+                                <br />Prepared by: <br />
+                                    <br />
+                                    <br />
+                                    <br />
+                                    <br />
+                        _________________________________  <br /> Name: <br /> Date:</strong>
+                        </div>
+                        <div
+                            style="float: right; width: 50%;">
+                            <strong>
+                                <br />Acknowledge by: <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                        _________________________________  <br /> Name: <br /> Date: </strong>
+                        </div>
+
+                    </t>
+                </t>
+            </t>
+
+
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Print PO-->
+    <record id="view_purchase_order_form_inherit" model="ir.ui.view">
+        <field name="name">purchase.order.inherited</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="print_purchase_order" string="Print Inbound Document" type="object"
+                    class="btn-primary" invisible="state not in ['purchase', 'done']" />
+            </xpath>
+        </field>
+    </record>
+
+    <!--Print
+    GRN-->
+    <record id="view_grn_form_inherit" model="ir.ui.view">
+        <field name="name">purchase.order.inherited</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+
+                <button name="print_good_received_note" string="Print Goods Received Note"
+                    type="object"
+                    class="btn-primary" invisible="state not in ['purchase', 'done']" />
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>
